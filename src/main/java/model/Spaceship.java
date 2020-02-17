@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * @author Набиев Азамат Ильдусович
  * @version 1.1
  */
-public class Spaceships {
+public class Spaceship {
     /** Поле наименования звездолёта */
     private String name;
 
@@ -84,20 +86,20 @@ public class Spaceships {
      * @param created дата создания записи о звездолёте
      * @param edited дата последнего редактирования записи о звездолёте
      * @param url ссылка на запись о звездолёте
-     * @see Spaceships#Spaceships(String, String, String, String,
+     * @see Spaceship#Spaceship(String, String, String, String,
      * String, String, String, String, String, String, String,
      * String, String, ArrayList, ArrayList, String, String, String)
      */
-    public Spaceships(String name, String model, String manufacturer,
-                      String cost_in_credits, String length,
-                      String max_atmosphering_speed, String crew,
-                      String passengers, String cargo_capacity,
-                      String consumables, String hyperdrive_rating,
-                      String MGLT, String starship_class,
-                      ArrayList<String> pilots,
-                      ArrayList<String> films,
-                      String created, String edited,
-                      String url) {
+    public Spaceship(String name, String model, String manufacturer,
+                     String cost_in_credits, String length,
+                     String max_atmosphering_speed, String crew,
+                     String passengers, String cargo_capacity,
+                     String consumables, String hyperdrive_rating,
+                     String MGLT, String starship_class,
+                     ArrayList<String> pilots,
+                     ArrayList<String> films,
+                     String created, String edited,
+                     String url) {
         this.name = name;
         this.model = model;
         this.manufacturer = manufacturer;

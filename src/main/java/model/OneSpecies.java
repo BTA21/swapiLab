@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * @author Набиев Азамат Ильдусович
  * @version 1.1
  */
-public class Species {
+public class OneSpecies {
     /** Поле наименования вида */
     private  String name;
 
@@ -73,17 +75,17 @@ public class Species {
      * @param created дата создания записи о виде
      * @param edited дата последнего редактирования записи о виде
      * @param url ссылка на запись о виде
-     * @see Species#Species(String, String, String, String,
+     * @see OneSpecies#OneSpecies(String, String, String, String,
      * String, String, String, String, String, String,
      * ArrayList, ArrayList, String, String, String)
      */
-    public Species(String name, String classification,
-                   String designation, String average_height,
-                   String hair_color, String skin_color, String eye_color,
-                   String average_lifespan, String homeworld,
-                   String language, ArrayList<String> people,
-                   ArrayList<String> films, String created,
-                   String edited, String url) {
+    public OneSpecies(String name, String classification,
+                      String designation, String average_height,
+                      String hair_color, String skin_color, String eye_color,
+                      String average_lifespan, String homeworld,
+                      String language, ArrayList<String> people,
+                      ArrayList<String> films, String created,
+                      String edited, String url) {
         this.name = name;
         this.classification = classification;
         this.designation = designation;

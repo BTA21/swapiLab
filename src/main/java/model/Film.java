@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * @author Набиев Азамат Ильдусович
  * @version 1.1
  */
-public class Films {
+public class Film {
     /** Поле наименования фильма */
     private String title;
 
@@ -68,16 +70,16 @@ public class Films {
      * @param created дата создания записи о фильме
      * @param edited дата последнего редактирования записи о фильме
      * @param url ссылка на запись о фильме
-     * @see Films#Films(String, String, String, String,
+     * @see Film#Film(String, String, String, String,
      * String, String, ArrayList, ArrayList, ArrayList,
      * ArrayList, ArrayList, String, String, String)
      */
-    public Films(String title, String episode_id, String opening_crawl,
-                 String director, String producer, String release_date,
-                 ArrayList<String> characters, ArrayList<String> planets,
-                 ArrayList<String> starships, ArrayList<String> vehicles,
-                 ArrayList<String> species, String created, String edited,
-                 String url) {
+    public Film(String title, String episode_id, String opening_crawl,
+                String director, String producer, String release_date,
+                ArrayList<String> characters, ArrayList<String> planets,
+                ArrayList<String> starships, ArrayList<String> vehicles,
+                ArrayList<String> species, String created, String edited,
+                String url) {
         this.title = title;
         this.episode_id = episode_id;
         this.opening_crawl = opening_crawl;
@@ -91,6 +93,79 @@ public class Films {
         this.species = species;
         this.created = created;
         this.edited = edited;
+        this.url = url;
+    }
+
+    public Film() {
+        title = "";
+        episode_id = "";
+        opening_crawl = "";
+        director = "";
+        producer = "";
+        release_date = "";
+        characters = null;
+        planets = null;
+        starships = null;
+        vehicles = null;
+        species = null;
+        created = null;
+        edited = "";
+        url = "";
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setEpisode_id(String episode_id) {
+        this.episode_id = episode_id;
+    }
+
+    public void setOpening_crawl(String opening_crawl) {
+        this.opening_crawl = opening_crawl;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
+    }
+
+    public void setCharacters(ArrayList<String> characters) {
+        this.characters = characters;
+    }
+
+    public void setPlanets(ArrayList<String> planets) {
+        this.planets = planets;
+    }
+
+    public void setStarships(ArrayList<String> starships) {
+        this.starships = starships;
+    }
+
+    public void setVehicles(ArrayList<String> vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public void setSpecies(ArrayList<String> species) {
+        this.species = species;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public void setEdited(String edited) {
+        this.edited = edited;
+    }
+
+    public void setUrl(String url) {
         this.url = url;
     }
 }

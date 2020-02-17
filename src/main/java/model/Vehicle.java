@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * @author Набиев Азамат Ильдусович
  * @version 1.1
  */
-public class Vehicles {
+public class Vehicle {
     /** Поле наименования транспортного средства */
     private String name;
 
@@ -76,17 +78,17 @@ public class Vehicles {
      * @param created дата создания записи о транспортном средстве
      * @param edited дата последнего редактирования записи о транспортном средстве
      * @param url ссылка на запись о транспортном средстве
-     * @see Vehicles#Vehicles(String, String, String, String,
+     * @see Vehicle#Vehicle(String, String, String, String,
      * String, String, String, String, String, String, String,
      * ArrayList, ArrayList, String, String, String)
      */
-    public Vehicles(String name, String model, String manufacturer,
-                    String cost_in_credits, String length,
-                    String max_atmosphering_speed, String crew,
-                    String passengers, String cargo_capacity,
-                    String consumables, String vehicle_class,
-                    ArrayList<String> pilots, ArrayList<String> films,
-                    String created, String edited, String url) {
+    public Vehicle(String name, String model, String manufacturer,
+                   String cost_in_credits, String length,
+                   String max_atmosphering_speed, String crew,
+                   String passengers, String cargo_capacity,
+                   String consumables, String vehicle_class,
+                   ArrayList<String> pilots, ArrayList<String> films,
+                   String created, String edited, String url) {
         this.name = name;
         this.model = model;
         this.manufacturer = manufacturer;

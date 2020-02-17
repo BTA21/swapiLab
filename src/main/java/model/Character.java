@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  * @author Набиев Азамат Ильдусович
  * @version 1.1
  */
-public class People {
+public class Character {
     /** Поле наименования персонажа */
     private  String name;
 
@@ -76,22 +78,22 @@ public class People {
      * @param created дата создания записи о персонаже
      * @param edited дата последнего редактирования записи о персонаже
      * @param url ссылка на запись о персонаже
-     * @see People#People(String, String, String,
+     * @see Character#Character(String, String, String,
      * String, String, String, String, String,
      * String, ArrayList, ArrayList,
      * ArrayList, ArrayList, String,
      * String, String)
      */
-    public People(String name, String height, String mass,
-                  String hair_color, String skin_color,
-                  String eye_color, String birth_year,
-                  String gender, String homeworld,
-                  ArrayList<String> films,
-                  ArrayList<String> species,
-                  ArrayList<String> vehicles,
-                  ArrayList<String> starships,
-                  String created, String edited,
-                  String url) {
+    public Character(String name, String height, String mass,
+                     String hair_color, String skin_color,
+                     String eye_color, String birth_year,
+                     String gender, String homeworld,
+                     ArrayList<String> films,
+                     ArrayList<String> species,
+                     ArrayList<String> vehicles,
+                     ArrayList<String> starships,
+                     String created, String edited,
+                     String url) {
         this.name = name;
         this.height = height;
         this.mass = mass;
