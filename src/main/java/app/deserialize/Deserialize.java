@@ -16,23 +16,24 @@ import java.io.IOException;
 public class Deserialize {
     public static void main(String[] args) throws UnirestException, IOException {
         Gson gson;
+
         HttpResponse<JsonNode> jsonResponse = Unirest.get("https://swapi.co/api/planets/")
                 .asJson();
-//        Reader json = new FileReader("D:\\stuff.json");
-        gson = new Gson();
 
-        String json = gson.toJson(jsonResponse.getBody().getObject().getJSONArray("results"));
+
+        gson = new Gson();
+        String json = gson.toJson(jsonResponse.getBody().getObject().getJSONArray("resultst"));
 
         gson = new GsonBuilder()
-                .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
+                .setPrettyPrinting()
                 .registerTypeAdapter(Planet.class, new PlanetDeserializer())
+                .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
                 .create();
-//        Planet planet = gson.fromJson(String.valueOf(json), Planet.class);
-//
-//        gson = new GsonBuilder()
-//                .setPrettyPrinting()
-//                .create();
-//        System.out.println(gson.toJson(planet));
+        Planets planets1 = gson.fromJson(json, Planets.class);
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+        System.out.println(gson.toJson(planets1));
 
 
         System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0).get("name"));

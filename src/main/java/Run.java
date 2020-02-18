@@ -1,34 +1,29 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import model.*;
+import model.Planets;
+import util.PlanetsUlil;
 
-import gson.deserialize.*;
+//import gson.serialize.PlanetSerializer;
+//import gson.serialize.PlanetsSerializer;
 
 public class Run {
     public static void main(String[] args) throws UnirestException {
-        Gson gson;
 
-//        Planets planets = PlanetsUlil.createPlanets();
-        HttpResponse<JsonNode> jsonResponse = Unirest.get("https://swapi.co/api/planets/")
-                .asJson();
+        Planets planets = PlanetsUlil.createPlanets();
 
-//        Gson gson = new GsonBuilder()
-//                .setPrettyPrinting()
-////                .registerTypeAdapter(Planet.class, new PlanetSerializer())
-////                .registerTypeAdapter(Planets.class, new PlanetsSerializer())
-//                .create();
-        gson = new Gson();
-        String json = gson.toJson(jsonResponse.getBody());
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+//                .registerTypeAdapter(Planet.class, new PlanetSerializer())
+//                .registerTypeAdapter(Planets.class, new PlanetsSerializer())
+                .create();
+        String json = gson.toJson(planets);
 //        System.out.println(json);
 
         gson = new GsonBuilder()
                 .setPrettyPrinting()
-                .registerTypeAdapter(Planet.class, new PlanetDeserializer())
-                .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
+//                .registerTypeAdapter(Planet.class, new PlanetDeserializer())
+//                .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
                 .create();
         Planets planets1 = gson.fromJson(json, Planets.class);
         gson = new GsonBuilder()
