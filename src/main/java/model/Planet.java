@@ -106,8 +106,8 @@ public class Planet {
         terrain = "";
         surface_water = "";
         population = "";
-        residents = null;
-        films = null;
+        residents = new ArrayList<>();
+        films = new ArrayList<>();
         created = "";
         edited = "";
         url = "";
@@ -149,12 +149,24 @@ public class Planet {
         return population;
     }
 
-    public ArrayList<String> getResidents() {
-        return residents;
+    public ArrayList<String> getResidentsArray(ArrayList<String> arrayList) {
+        return arrayList;
     }
 
-    public ArrayList<String> getFilms() {
-        return films;
+    public String getResidents(Integer index) {
+        return residents.get(index);
+    }
+
+    public Integer getRSize() {
+        return this.residents.size();
+    }
+
+    public String getFilms(Integer index) {
+        return films.get(index);
+    }
+
+    public Integer getFSize() {
+        return this.films.size();
     }
 
     public String getCreated() {
@@ -225,20 +237,25 @@ public class Planet {
         this.url = url;
     }
 
-    public String toString(){
-        return "\n Информация о планете: \n" + "наименование планеты: " + name +
-                "период вращения планеты: " + rotation_period +
-                "орбитальный период планеты: " + orbital_period +
-                "диаметр планеты: " + diameter +
-                "климат планеты: " + climate +
-                "гравитация планеты: " + gravity +
-                "местность планеты: " + terrain +
-                "поверхность воды планеты: " + surface_water +
-                "популяция планеты: " + population +
-                "жители планеты: " + residents + "фильмы, где появлялась планета"  + films +
-                "дата создания записи о планете: "+ created +
-                "дата последнего редактирования записи о планете: " + edited +
-                "ссылка на запись о планете: " + url;
+    public void addResident() {
     }
+
+
+
+//    public String toString(){
+//        return "\n Информация о планете: \n" + "наименование планеты: " + name +
+//                "период вращения планеты: " + rotation_period +
+//                "орбитальный период планеты: " + orbital_period +
+//                "диаметр планеты: " + diameter +
+//                "климат планеты: " + climate +
+//                "гравитация планеты: " + gravity +
+//                "местность планеты: " + terrain +
+//                "поверхность воды планеты: " + surface_water +
+//                "популяция планеты: " + population +
+//                "жители планеты: " + residents + "фильмы, где появлялась планета"  + films +
+//                "дата создания записи о планете: "+ created +
+//                "дата последнего редактирования записи о планете: " + edited +
+//                "ссылка на запись о планете: " + url;
+//    }
 
 }

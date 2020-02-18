@@ -1,9 +1,8 @@
 package gson.deserialize;
 import com.google.gson.*;
 import model.Planet;
+
 import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.List;
 
 public class PlanetDeserializer implements JsonDeserializer<Planet> {
 
@@ -12,9 +11,7 @@ public class PlanetDeserializer implements JsonDeserializer<Planet> {
                               JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
         Planet planet = new Planet();
-        String data = json.getAsString();
-        List<String> parts = Arrays.asList(data.split(" "));
-        planet.setName(jsonObject.get("title").getAsString());
+        planet.setName(jsonObject.get("name").getAsString());
         planet.setRotation_period(jsonObject.get("rotation_period").getAsString());
         planet.setOrbital_period(jsonObject.get("orbital_period").getAsString());
         planet.setDiameter(jsonObject.get("diameter").getAsString());

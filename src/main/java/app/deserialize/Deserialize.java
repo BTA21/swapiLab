@@ -1,4 +1,5 @@
 package app.deserialize;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mashape.unirest.http.HttpResponse;
@@ -10,28 +11,35 @@ import gson.deserialize.PlanetsDeserializer;
 import model.Planet;
 import model.Planets;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Deserialize {
     public static void main(String[] args) throws UnirestException, IOException {
         Gson gson;
-        Planets planets = null;
-        HttpResponse<JsonNode> jsonResponse = Unirest.get("https://swapi.co/api/planets")
-                .queryString("results",10)
+        HttpResponse<JsonNode> jsonResponse = Unirest.get("https://swapi.co/api/planets/")
                 .asJson();
-
+//        Reader json = new FileReader("D:\\stuff.json");
         gson = new Gson();
-        String json = gson.toJson(jsonResponse.getBody().getObject().toString(1));
+
+        String json = gson.toJson(jsonResponse.getBody().getObject().getJSONArray("results"));
 
         gson = new GsonBuilder()
                 .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
                 .registerTypeAdapter(Planet.class, new PlanetDeserializer())
                 .create();
+//        Planet planet = gson.fromJson(String.valueOf(json), Planet.class);
+//
+//        gson = new GsonBuilder()
+//                .setPrettyPrinting()
+//                .create();
+//        System.out.println(gson.toJson(planet));
 
 
-        gson.toJson(json, new FileWriter("D:\\SWAPI.json"));
-        System.out.println(jsonResponse.getBody().getObject().toString(1));
+        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0).get("name"));
+        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0));
+        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results"));
+        System.out.println(jsonResponse.getBody().getObject());
+        System.out.println(jsonResponse.getBody());
 
     }
 }
