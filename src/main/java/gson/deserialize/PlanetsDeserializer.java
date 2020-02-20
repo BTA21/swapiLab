@@ -17,6 +17,7 @@ public class PlanetsDeserializer implements JsonDeserializer<Planets> {
         for(Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             Planet planet = context.deserialize(entry.getValue(), Planet.class);
             planets.addPlanet(planet);
+            planets.setPlanets(planet);
         }
         return planets;
     }

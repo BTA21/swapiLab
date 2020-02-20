@@ -1,6 +1,8 @@
 package gson.deserialize;
+
 import com.google.gson.*;
 import model.Planet;
+import model.Planets;
 
 import java.lang.reflect.Type;
 
@@ -35,6 +37,7 @@ public class PlanetDeserializer implements JsonDeserializer<Planet> {
         planet.setCreated(jsonObject.get("created").getAsString());
         planet.setEdited(jsonObject.get("edited").getAsString());
         planet.setUrl(jsonObject.get("url").getAsString());
+        Planets.planetsArr.add(planet);
         return planet;
     }
 }

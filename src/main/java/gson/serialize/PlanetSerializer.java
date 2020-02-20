@@ -1,9 +1,6 @@
 package gson.serialize;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 import model.Planet;
 
 import java.lang.reflect.Type;
@@ -23,12 +20,15 @@ public class PlanetSerializer implements JsonSerializer<Planet> {
         result.addProperty("terrain", src.getTerrain());
         result.addProperty("surface_water", src.getSurface_water());
         result.addProperty("population", src.getPopulation());
+        JsonArray residents = new JsonArray();
+        result.add("residents", residents);
         for(int i  = 0; i < src.getRSize(); i++) {
-            result.addProperty("resident", src.getResidents(i));
+            residents.add(src.getResidents(i));
         }
-
+        JsonArray films = new JsonArray();
+        result.add("films", films);
         for(int i = 0; i < src.getFSize(); i++) {
-            result.addProperty("films", src.getFilms(i));
+            films.add(src.getFilms(i));
         }
         result.addProperty("created", src.getCreated());
         result.addProperty("edited", src.getEdited());

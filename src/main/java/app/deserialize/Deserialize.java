@@ -16,31 +16,33 @@ import java.io.IOException;
 public class Deserialize {
     public static void main(String[] args) throws UnirestException, IOException {
         Gson gson;
+        Planets planet = new Planets();
 
-        HttpResponse<JsonNode> jsonResponse = Unirest.get("https://swapi.co/api/planets/")
+        HttpResponse<JsonNode> jsonResponse = Unirest.get("http://swapi.co/api/planets")
                 .asJson();
 
 
         gson = new Gson();
-        String json = gson.toJson(jsonResponse.getBody().getObject().getJSONArray("resultst"));
+        String json = jsonResponse.getBody().toString();
 
         gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Planet.class, new PlanetDeserializer())
                 .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
                 .create();
-        Planets planets1 = gson.fromJson(json, Planets.class);
-        gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
-        System.out.println(gson.toJson(planets1));
+        System.out.println(Planets.planetsArr);
+//        Planets planets1 = gson.fromJson(json, Planets.class);
+//        gson = new GsonBuilder()
+//                .setPrettyPrinting()
+//                .create();
+//        System.out.println(gson.toJson(planets1));
 
 
-        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0).get("name"));
-        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0));
-        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results"));
-        System.out.println(jsonResponse.getBody().getObject());
-        System.out.println(jsonResponse.getBody());
+//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0).get("name"));
+//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0));
+//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results"));
+//        System.out.println(jsonResponse.getBody().getObject());
+//        System.out.println(jsonResponse.getBody());
 
     }
 }
