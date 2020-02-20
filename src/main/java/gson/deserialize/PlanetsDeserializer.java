@@ -1,10 +1,10 @@
 package gson.deserialize;
+
 import com.google.gson.*;
 import model.Planet;
 import model.Planets;
 
 import java.lang.reflect.Type;
-import java.util.Map;
 
 public class PlanetsDeserializer implements JsonDeserializer<Planets> {
 
@@ -13,11 +13,10 @@ public class PlanetsDeserializer implements JsonDeserializer<Planets> {
                                JsonDeserializationContext context) throws JsonParseException {
         Planets planets = new Planets();
         JsonObject jsonObject = json.getAsJsonObject();
-
-        for(Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
-            Planet planet = context.deserialize(entry.getValue(), Planet.class);
+        JsonArray arrayPlanets = jsonObject.getAsJsonArray();
+        for(int i = 0; i < arrayPlanets.size(); i++) {
+            Planet planet = context.deserialize(arrayPlanets.get(i), Planet.class);
             planets.addPlanet(planet);
-            planets.setPlanets(planet);
         }
         return planets;
     }

@@ -1,15 +1,25 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Vehicles {
-    private ArrayList<Vehicle> vehicles = new ArrayList<>();
+public class Vehicles extends ArrayOfData {
+    private List<Vehicle> results = new ArrayList<>();
 
-    public ArrayList<Vehicle> getVehicles() {
-        return vehicles;
+    public List<Vehicle> getVehicle()
+    {
+        return new LinkedList<>(results);
     }
 
-    public void addVehicles(Vehicle vehicle) {
-        this.vehicles.add(vehicle);
+    public void showVehicles()
+    {
+        for(int i = 0; i < results.size(); i++) {
+            System.out.println(results.get(i));
+        }
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        this.results.add(vehicle);
     }
 }

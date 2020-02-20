@@ -1,6 +1,10 @@
 package util;
 import model.*;
-
+/**
+ * Класс для создания тестовой выборки планет.
+ * @author Набиев Азамат Ильдусович
+ * @version 1.1
+ */
 public class PlanetsUlil {
     public static Planets createPlanets() throws NullPointerException
     {

@@ -58,7 +58,7 @@ public class Film {
      * Конструктор - создание нового фильма с определенными значениями
      * @param title  наименование фильма
      * @param episode_id порядковый номера фильма
-     * @param opening_crawl открывающий текст-вступления фильма
+     * @param opening_crawl открывающий текст-вступление фильма
      * @param director имя режиссёра фильма
      * @param producer имя продюсера фильма
      * @param release_date дата премьеры фильма
@@ -113,6 +113,82 @@ public class Film {
         url = "";
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getEpisode_id() {
+        return episode_id;
+    }
+
+    public String getOpening_crawl() {
+        return opening_crawl;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public String getRelease_date() {
+        return release_date;
+    }
+
+    public String getCharacters(Integer index) {
+        return characters.get(index);
+    }
+
+    public Integer getCharactersSize() {
+        return this.characters.size();
+    }
+
+    public String getPlanets(Integer index) {
+        return planets.get(index);
+    }
+
+    public Integer getPlanetsSize() {
+        return this.planets.size();
+    }
+
+    public String getStarships(Integer index) {
+        return starships.get(index);
+    }
+
+    public Integer getStarshipsSize() {
+        return this.starships.size();
+    }
+
+    public String getVehicles(Integer index) {
+        return vehicles.get(index);
+    }
+
+    public Integer getVehiclesSize() {
+        return this.vehicles.size();
+    }
+
+    public String getSpecies(Integer index) {
+        return species.get(index);
+    }
+
+    public Integer getSpeciesSize() {
+        return this.species.size();
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public String getEdited() {
+        return edited;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -137,24 +213,24 @@ public class Film {
         this.release_date = release_date;
     }
 
-    public void setCharacters(ArrayList<String> characters) {
-        this.characters = characters;
+    public void addCharacter(String character) {
+        this.characters.add(character);
     }
 
-    public void setPlanets(ArrayList<String> planets) {
-        this.planets = planets;
+    public void addPlanet(String planet) {
+        this.planets.add(planet);
     }
 
-    public void setStarships(ArrayList<String> starships) {
-        this.starships = starships;
+    public void addStarship(String starship) {
+        this.starships.add(starship);
     }
 
-    public void setVehicles(ArrayList<String> vehicles) {
-        this.vehicles = vehicles;
+    public void addVehicle(String vehicle) {
+        this.vehicles.add(vehicle);
     }
 
-    public void setSpecies(ArrayList<String> species) {
-        this.species = species;
+    public void addSpecies(String oneSpecies) {
+        this.species.add(oneSpecies);
     }
 
     public void setCreated(String created) {
@@ -167,6 +243,26 @@ public class Film {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String toString(){
+        return "\n \n Информация о фильме:" +
+                "\n ========================================================================================" +
+                "\n наименование фильма: " + title +
+                "\n порядковый номер фильма: " + episode_id +
+                "\n открывающий текст-вступление фильма: \n" + opening_crawl +
+                "\n имя режиссёра фильма: " + director +
+                "\n имя продюсера фильма: " + producer +
+                "\n дата премьеры фильма: " + release_date +
+                "\n персонажи, которые появляются в фильме: " + characters +
+                "\n планеты, которые появляются в фильме: " + planets +
+                "\n звездолёты, которые появляются в фильме: " + starships +
+                "\n транспортные средства, которые появляются в фильме: " + vehicles +
+                "\n виды, которые появляются в фильме: "  + species +
+                "\n дата создания записи о фильме: "+ created +
+                "\n дата последнего редактирования записи о фильме: " + edited +
+                "\n ссылка на запись о фильме: " + url +
+                "\n ========================================================================================";
     }
 }
 

@@ -1,15 +1,25 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Species {
-    private ArrayList<OneSpecies> species = new ArrayList<>();
+public class Species extends ArrayOfData {
+    private List<OneSpecies> results = new ArrayList<>();
 
-    public ArrayList<OneSpecies> getSpecies() {
-        return species;
+    public List<OneSpecies> getOneSpecies()
+    {
+        return new LinkedList<>(results);
     }
 
-    public void addSpecies(OneSpecies oneSpecies) {
-        this.species.add(oneSpecies);
+    public void showSpecies()
+    {
+        for(int i = 0; i < results.size(); i++) {
+            System.out.println(results.get(i));
+        }
+    }
+
+    public void addOneSpecies(OneSpecies oneSpecies) {
+        this.results.add(oneSpecies);
     }
 }

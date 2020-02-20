@@ -6,43 +6,113 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import gson.deserialize.PlanetDeserializer;
-import gson.deserialize.PlanetsDeserializer;
-import model.Planet;
-import model.Planets;
+import gson.deserialize.*;
+import model.*;
 
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class Deserialize {
-    public static void main(String[] args) throws UnirestException, IOException {
+    Deserialize() throws UnirestException {
         Gson gson;
-        Planets planet = new Planets();
+        String adress;
+        String json;
+        ArrayList<ArrayOfData> results = new ArrayList<>();
+        HttpResponse<JsonNode> jsonResponse;
 
-        HttpResponse<JsonNode> jsonResponse = Unirest.get("http://swapi.co/api/planets")
+        adress = "http://swapi.co/api/films";
+        jsonResponse = Unirest.get(adress)
                 .asJson();
 
 
         gson = new Gson();
-        String json = jsonResponse.getBody().toString();
+        json = jsonResponse.getBody().toString();
+        Films films = gson.fromJson(json, Films.class);
+
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Film.class, new FilmDeserializer())
+                .registerTypeAdapter(Films.class, new FilmsDeserializer())
+                .create();
+        results.add(films);
+
+        adress = "http://swapi.co/api/planets";
+        jsonResponse = Unirest.get(adress)
+                .asJson();
+
+
+        gson = new Gson();
+        json = jsonResponse.getBody().toString();
+        Planets planets = gson.fromJson(json, Planets.class);
 
         gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(Planet.class, new PlanetDeserializer())
                 .registerTypeAdapter(Planets.class, new PlanetsDeserializer())
                 .create();
-        System.out.println(Planets.planetsArr);
-//        Planets planets1 = gson.fromJson(json, Planets.class);
-//        gson = new GsonBuilder()
-//                .setPrettyPrinting()
-//                .create();
-//        System.out.println(gson.toJson(planets1));
+        results.add(planets);
 
 
-//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0).get("name"));
-//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results").getJSONObject(0));
-//        System.out.println(jsonResponse.getBody().getObject().getJSONArray("results"));
-//        System.out.println(jsonResponse.getBody().getObject());
-//        System.out.println(jsonResponse.getBody());
+        adress = "http://swapi.co/api/people";
+        jsonResponse = Unirest.get(adress)
+                .asJson();
 
+        gson = new Gson();
+        json = jsonResponse.getBody().toString();
+        People people = gson.fromJson(json, People.class);
+
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Person.class, new PersonDeserializer())
+                .registerTypeAdapter(People.class, new PeopleDeserializer())
+                .create();
+        results.add(people);
+
+
+        adress = "http://swapi.co/api/species";
+        jsonResponse = Unirest.get(adress)
+                .asJson();
+
+        gson = new Gson();
+        json = jsonResponse.getBody().toString();
+        Species species = gson.fromJson(json, Species.class);
+
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(OneSpecies.class, new OneSpeciesDeserializer())
+                .registerTypeAdapter(Species.class, new SpeciesDeserializer())
+                .create();
+        results.add(species);
+
+        adress = "http://swapi.co/api/vehicles";
+        jsonResponse = Unirest.get(adress)
+                .asJson();
+
+        gson = new Gson();
+        json = jsonResponse.getBody().toString();
+        Vehicles vehicles = gson.fromJson(json, Vehicles.class);
+
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Vehicle.class, new VehicleDeserializer())
+                .registerTypeAdapter(Vehicles.class, new VehiclesDeserializer())
+                .create();
+        results.add(vehicles);
+
+        adress = "http://swapi.co/api/starships";
+        jsonResponse = Unirest.get(adress)
+                .asJson();
+
+        gson = new Gson();
+        json = jsonResponse.getBody().toString();
+        Spaceships spaceships = gson.fromJson(json, Spaceships.class);
+
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(Spaceship.class, new SpaceshipDeserializer())
+                .registerTypeAdapter(Spaceships.class, new SpaceshipsDeserializer())
+                .create();
+        results.add(spaceships);
+        spaceships.showAll();
+        DeserializeMenu2.AskMenu(films, planets, people, species, spaceships, vehicles);
     }
 }

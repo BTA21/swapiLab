@@ -106,4 +106,181 @@ public class Vehicle {
         this.edited = edited;
         this.url = url;
     }
+
+    public Vehicle() {
+        name = "";
+        model = "";
+        manufacturer = "";
+        cost_in_credits = "";
+        length = "";
+        max_atmosphering_speed = "";
+        crew = "";
+        passengers = "";
+        cargo_capacity = "";
+        consumables = "";
+        vehicle_class = "";
+        pilots = null;
+        films = null;
+        created = "";
+        edited = "";
+        url = "";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getCost_in_credits() {
+        return cost_in_credits;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public String getMax_atmosphering_speed() {
+        return max_atmosphering_speed;
+    }
+
+    public String getCrew() {
+        return crew;
+    }
+
+    public String getPassengers() {
+        return passengers;
+    }
+
+    public String getCargo_capacity() {
+        return cargo_capacity;
+    }
+
+    public String getConsumables() {
+        return consumables;
+    }
+
+    public String getVehicle_class() {
+        return vehicle_class;
+    }
+
+    public String getPilots(Integer index) {
+        return pilots.get(index);
+    }
+
+    public Integer getPilotsSize() {
+        return this.pilots.size();
+    }
+
+    public String getFilms(Integer index) {
+        return films.get(index);
+    }
+
+    public Integer getFilmsSize() {
+        return this.films.size();
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
+    public String getEdited() {
+        return edited;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setCost_in_credits(String cost_in_credits) {
+        this.cost_in_credits = cost_in_credits;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public void setMax_atmosphering_speed(String max_atmosphering_speed) {
+        this.max_atmosphering_speed = max_atmosphering_speed;
+    }
+
+    public void setCrew(String crew) {
+        this.crew = crew;
+    }
+
+    public void setPassengers(String passengers) {
+        this.passengers = passengers;
+    }
+
+    public void setCargo_capacity(String cargo_capacity) {
+        this.cargo_capacity = cargo_capacity;
+    }
+
+    public void setConsumables(String consumables) {
+        this.consumables = consumables;
+    }
+
+    public void setVehicle_class(String vehicle_class) {
+        this.vehicle_class = vehicle_class;
+    }
+
+    public void addPilot(String pilot) {
+        this.pilots.add(pilot);
+    }
+
+    public void addFilm(String film) {
+        this.films.add(film);
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public void setEdited(String edited) {
+        this.edited = edited;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String toString(){
+        return "\n \n Информация о транспортном средстве:" +
+                "\n ========================================================================================" +
+                "\n наименование транспортного средства: " + name +
+                "\n модель транспортного средства: " + model +
+                "\n производитель транспортного средства: " + manufacturer +
+                "\n стоимость в кредитах транспортного средства: " + cost_in_credits +
+                "\n протяжённость транспортного средства: " + length +
+                "\n максимальная скорость транспортного средства: " + max_atmosphering_speed +
+                "\n количества членов экипажа транспортного средства: " + crew +
+                "\n количество пассажиров транспортного средства: " + passengers +
+                "\n грузоподъемность транспортного средства: " + cargo_capacity +
+                "\n период расхода топлива при полном баке транспортного средства: " + consumables +
+                "\n класс транспортного средства: "  + vehicle_class +
+                "\n пилоты транспортного средства: "  + pilots +
+                "\n фильмы, где появлялось транспортное средство"  + films +
+                "\n дата создания записи о транспортном средстве: "+ created +
+                "\n дата последнего редактирования записи о транспортном средстве: " + edited +
+                "\n ссылка на запись о транспортном средстве: " + url +
+                "\n ========================================================================================";
+    }
 }

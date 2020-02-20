@@ -1,3 +1,5 @@
+package client;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -34,7 +36,6 @@ public class Run {
 //                .setPrettyPrinting()
 //                .create();
 //        System.out.println(gson.toJson(planets1));
-        System.out.println(Planets.planetsArr.get(0));
 
     }
 }
