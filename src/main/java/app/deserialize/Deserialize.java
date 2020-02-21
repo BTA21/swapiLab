@@ -112,7 +112,7 @@ public class Deserialize {
                 .registerTypeAdapter(Spaceships.class, new SpaceshipsDeserializer())
                 .create();
         results.add(spaceships);
-        spaceships.showAll();
-        DeserializeMenu2.AskMenu(films, planets, people, species, spaceships, vehicles);
+        DeserializeMenu1.AskMenu1(films, planets, people, species, spaceships, vehicles);
+
     }
 }
